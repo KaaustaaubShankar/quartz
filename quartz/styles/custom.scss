@@ -1,3 +1,103 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// Custom footer styling
+footer {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary);
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--tertiary);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-items: center;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.book-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 150px; /* Adjust as needed */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.book-status {
+  margin-top: 0.5rem;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  background-color: var(--tertiary);
+
+  &.finished {
+    background-color: #61b36d; /* A nice green for finished */
+  }
+
+  &.reading {
+    background-color: #f7b731; /* Orange for currently reading */
+  }
+
+  &.will-read {
+    background-color: #55acee; /* Blue for will read */
+  }
+}
